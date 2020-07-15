@@ -1,0 +1,24 @@
+What is the role of HTML in a web page?
+    determine how the web page is STRUCTURED
+    
+
+What is the role of CSS in a web page?
+    it determines how it LOOKS 
+
+
+What is the role of JavaScript in a web page?
+    determines how it FUNCTIONS
+
+what is front-end web development in minimal words?
+    A mix of programming and layout that powers the visuals and interactions of the web.
+
+If a website were a house, front-end web development would be?
+    The pretty exterior that gives the house character,
+    or the host that invites guests in and makes them feel at home.
+
+
+links for references:
+            http://webapps-for-beginners.rubymonstas.org/html.html
+            https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web
+            https://devdocs.io/
+            https://www.freecodecamp.org/learn/
