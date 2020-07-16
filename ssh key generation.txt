@@ -1,0 +1,83 @@
+For Linux/WSL:
+Step 1: Install Git
+    Step 1.1: Update the system
+        1] sudo apt update
+        2] sudo apt upgrade
+    Step 1.2: Install git
+        1] sudo apt install curl git
+
+Step 2: Configure Git and Github
+    Step 2.1: Setup Git 
+        1] git config --global user.name "Your Name"(you must include quotation marks also);
+        2] git config --global user.email "yourname@example.com"(you must include quotation marks);
+       
+       
+    *To enable colorful output with git, type
+        1] git config --global color.ui auto
+
+    *To verify things are working properly, enter these commands
+     and verify that the output matches your name and email address.
+        1] git config --get user.name
+        2] git config --get user.email
+
+    Step 2.2: Create a GitHub Account or Sign In
+        Go to GitHub.com and create your account if already have account simply login.
+        To keep it simple use your email id which you used before, you can also login with another id.
+
+    Step 2.3: Create an SSH Key
+        //what is SSH key?
+        An SSH key is a cryptographically secure identifier.
+        It’s like a really long password used to identify your machine. 
+        GitHub uses SSH keys to allow you to upload to your repository,
+        without having to type in your username and password every time.
+
+        First, we need to see if you have an SSH key already installed. Type this into the terminal:
+            1]ls ~/.ssh/id_rsa.pub
+
+        If the message in the console contains No such file or directory,
+        then you don’t have an SSH key, and you’ll need to create one.
+        If you do not see No such file or directory in the output,
+        you already have a key; proceed to step 2.4.
+
+        *To create a new SSH key, run the following command inside your terminal.
+         The -C flag followed by your email address ensures that GitHub knows who you are.
+            1]ssh-keygen -C <youremail>(dont include angular brackets just type your email).
+
+    Step 2.4: Link Your SSH Key with GitHub
+            Now, you need to tell GitHub what your SSH key is so that you can push your code 
+            without typing in a password every time.
+
+            First, you’ll navigate to where GitHub receives our SSH key.
+            Log into GitHub and click on your profile picture in the top right corner. 
+            Then, click on Settings in the drop-down menu.
+
+            Next, on the left-hand side, click SSH and GPG keys. 
+            Then, click the green button in the top right corner that says New SSH Key.
+            give title or name something descriptive to remember where it come from.
+            Leave this window open while you do the next steps.
+
+
+            Now you need to copy your public SSH key.
+            o do this, we’re going to use a command called cat to read the file to the console.
+            (Note that the .pub file extension is important in this case.)
+                1] cat ~/.ssh/id_rsa.pub
+            
+            Highlight and copy the output, which starts with ssh-rsa and ends with your email address.
+            Now, go back to GitHub in your browser window and paste the key you copied into the key field.
+            Then, click Add SSH key. You’re done! You’ve successfully added your SSH key!
+
+    Step 2.5 Testing your key
+            1] Open Terminal.
+            2] Enter the following:
+                ssh -T git@github.com
+            You may see a warning like this:
+                > The authenticity of host 'github.com (IP ADDRESS)' can't be established.
+                > RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+                > Are you sure you want to continue connecting (yes/no)?
+            or like this:
+                > The authenticity of host 'github.com (IP ADDRESS)' can't be established.
+                > RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+                > Are you sure you want to continue connecting (yes/no)?
+            3] Verify that the fingerprint in the message you see matches one of the messages in step 2, then type yes:
+                > Hi username! You've successfully authenticated, but GitHub does not
+                > provide shell access.
